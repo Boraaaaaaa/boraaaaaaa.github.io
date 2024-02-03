@@ -1,0 +1,1031 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taunahi - Latest Editions</title>
+<script src="detect-gpu@5.0.38/dist/detect-gpu.umd.js"></script>
+<script src="js/Gradient.js"></script>
+<script src="js/animateText.js"></script>
+<script type="text/javascript" src="js/numberFormatter.js"></script>
+<link rel="preconnect" href="index-1.htm">
+<link rel="stylesheet" href="inter/inter.css">
+<link href="css/vyker.css" rel="stylesheet">
+<script src="npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<meta name="theme-color" content="#7f2f30">
+<link rel="icon" type="image/png" href="logo-cube-small.png">
+<meta property="og:title" content="Taunahi" -="" latest="" editions="">
+<meta property="og:image" content="https://assets.taunahi.net/generic-taunahi-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:url" content="https://www.taunahi.net/latest">
+<meta property="og:description" content="A project created to create better, and cheaper, alternatives to scripts and modifications.">
+</head>
+<body>
+<canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
+<script>
+    async function detectGPU() {
+        const gpuTier = await DetectGPU.getGPUTier()
+        const hasGPUAcceleration = gpuTier.tier >= 2
+        console.log("GPU Acceleration: " + hasGPUAcceleration);
+        console.log("GPU Tier: " + gpuTier.tier);
+        await processGPUResults(hasGPUAcceleration, gpuTier.tier)
+    }
+
+    async function processGPUResults(hasGPUAcceleration, gpuTier) {
+        let gradientCanvas = document.getElementById('gradient-canvas')
+
+        if (gpuTier === 0) {
+            gradientCanvas.style.background = 'linear-gradient(318deg, rgba(236,96,96,1) 0%, rgba(103,56,56,1) 25%, rgba(36,36,36,1) 54%)';
+        } {
+            new Gradient({
+                canvas: '#gradient-canvas',
+                colors: ['#1d1e20', '#612f30', '#1d1e20', '#1d1e20'],
+                static: gpuTier < 3,
+            });
+            
+            
+        }
+
+        gradientCanvas.style.opacity = "1";
+
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        if (hasGPUAcceleration) {
+            let shouldBlurElements = document.getElementsByClassName("element-item-container");
+            for (let i = 0; i < shouldBlurElements.length; i++) {
+                shouldBlurElements[i].style.backdropFilter = "blur(10px)";
+            }
+
+            let navbar = document.getElementById("taunahi-nav");
+            if (navbar) {
+                navbar.style.backdropFilter = "blur(10px)";
+            }
+        }
+
+        for (const funcName of Object.getOwnPropertyNames(this)) {
+            if (typeof this[funcName] === 'function' && funcName.startsWith("afterGpuCheck")) {
+                const fn = window[funcName];
+                fn(hasGPUAcceleration);
+            }
+        }
+    }
+
+    
+    
+        detectGPU();
+    
+</script>
+<div id="real-content">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="taunahi-nav">
+<div class="container-fluid justify-content-between">
+
+<div class="d-flex">
+
+<div class="navbar-brand me-2 mb-1 d-flex align-items-center">
+<a href="home.html" style="
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+">
+<img src="logo-transparent-small.png" height="30" alt="MDB Logo" loading="lazy" style="margin-top: 2px;">
+<h5 class="navbar-taunahi-header">Taunahi</h5>
+</a>
+<a href="invite/taunahi.html" target="_blank">
+<img src="discord-white.png" height="30" alt="Discord Logo" class="highlight-hover" style="margin-top: 2px; margin-left: 30px;">
+</a>
+<a href="cdn-cgi/l/email-protection.html#43303633332c3137033722362d222b2a6d2d2637">
+<img src="mail.png" height="25" style="
+    margin-top: 2px;
+    margin-left: 10px;
+" alt="Email" class="highlight-hover">
+</a>
+</div>
+
+
+</div>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse flex-row navbar-right" id="navbarSupportedContent">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="features.html">Features</a>
+</li>
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="dashboard.html">Dashboard</a>
+</li>
+
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center v3-0-navbar-text" href="latest.html">Edition 3.0</a>
+</li>
+</ul>
+</div>
+
+</div>
+</nav>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function afterGpuCheckNavbar(hasGPUAcceleration) {
+    let navbar = document.getElementById("taunahi-nav");
+
+    let gradientBackground = "transparent linear-gradient(94deg, rgba(35, 35, 35, 0) 0%, #23232395 100%) 0% 0% no-repeat padding-box";
+    let solidBackground = "#212121";
+
+    navbar.style.background = gradientBackground;
+    navbar.style.filter = "drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))";
+    navbar.style.mixBlendMode = "normal";
+    navbar.style.backgroundBlendMode = "normal";
+
+    let navbarToggler = document.getElementsByClassName("navbar-toggler")[0];
+
+    addEventListener("scroll", function() {
+      if (window.scrollY > 0) {
+        navbar.style.background = solidBackground;
+      } else if (navbarToggler.getAttribute("aria-expanded") === "false") {
+        navbar.style.background = gradientBackground;
+      }
+    });
+
+    navbarToggler.addEventListener("click", function() {
+        if (navbarToggler.getAttribute("aria-expanded") === "true") {
+            navbar.style.background = solidBackground;
+        } else if (window.scrollY === 0) {
+            navbar.style.background = gradientBackground;
+        }
+    });
+  }
+</script>
+<div class="doc-container changelog-container">
+<div class="left-explorer">
+<div class="explorer-list">
+
+</div>
+</div>
+<div class="changelog-content">
+<div class="main-title" style="text-align: center;">
+<h1 class="full-width"><span>Edition 3.0</span></h1>
+<h1 class="full-width"><span>Edition 3.0</span></h1>
+</div>
+<p class="changelog-date">21st of November 2023</p>
+<h2 class="changelog-section-name">Visuals</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Upgraded Menu</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/menu-ui.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/menu-ui.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Built upon the menu crafted in version 2.1, with new animations, themes, components & more.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Rebuilt HUD</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/hud.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/hud.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The HUD has been re-imaged, to show off much more data such as your profit, XP, slayers & more.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Inventory Preview</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/inv-preview.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/inv-preview.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Along with the new HUD, you can now see your inventory, and the items you have in it.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Picture-in-Picture</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/pip.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/pip.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Added a new picture-in-picture feature, so that Minecraft is overlaid on top of your desktop at all times in a small window.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Spiral Perspective</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/perspective.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/perspective.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi now has multiple perspective modes so you can see around you whilst scripting (and manually outside of it). Supports zoom via scroll wheel.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Rewritten Script Selection</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/play-menu.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/play-menu.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Incredible new script selection design with different sections, script types, animated icons.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">UI Themes</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/themes.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/themes.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">All users can now create their own themes, and share them with others.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">New Setting Types</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/settings-types.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/settings-types.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">New setting types have been added to remove the need for annoying commands, such as rewarper & auto-direction.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Script Visuals</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/script-visuals.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/script-visuals.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Many of our modules now show 3D visuals so you can better understand what is happening, such as auto-killer or fastbreak.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">No-Render</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/no-render.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/no-render.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi now has no-render modes, which will disable portions of the game to improve performance.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Hydra Anti-Staff</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Frame Perfect Responses</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/hydra-response.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/hydra-response.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The new hydra system has an large array (and growing) number of human-like responses that are catered to each situation.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">High Staff Activity Disconnects</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/banwave.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/banwave.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi will now disconnect you from the server if it detects a high amount of staff activity.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Real Checks Tracker</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/realchecks.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/realchecks.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Other clients use a unreliable API to show "bans". Taunahi uses its own system to track real checks, and will show you them per script.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">More Detection Methods</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/weird-checks.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/weird-checks.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi detects staff checks in a much more efficient way, and with significantly less false positives due to its new re-written design.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">For All Scripts</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/fishing-antistaff.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/fishing-antistaff.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Hydra is now available for all scripts, whether its farming, foraging, combat, etc, and will be enabled by default.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Backup Triggers</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/farming-interruptions.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/farming-interruptions.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">In the event of staff not using a explicit known check, Taunahi can detect any sudden large farming interruption and activate Hydra in the event of one.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Farming</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Plot Cleaner</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/plot-cleaner.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/plot-cleaner.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The new Plot Cleaner script will (fully AFK) clean up any plots from 0 to 100% in just a few minutes.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Dedicated Scripts</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/dedicated-scripts.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/dedicated-scripts.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The introduction of dedicated Cactus, Mushroom & Cocoa scripts, along with Pumpkin/Melon getting being split into two modes.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Automatic Starting Direction</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/auto-movement.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/auto-movement.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Farming scripts will automatically calculate in which movement direction they should run in.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Tool Switcher</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/tool-switcher.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/tool-switcher.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi will now automatically switch to the correct tool for the crop you are farming.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Packet Limiter</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/packet-limiter.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/packet-limiter.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">For those with bad internet, Taunahi can now stop farming during lagspikes to prevent you from getting kicked.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Visitors</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/visitor.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/visitor.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Greatly increase your profit/hour by completing visitors inbetween rewarps.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Fully Automatic Auto-Direction</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/auto-direction.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/auto-direction.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Auto-Direction now works fully automatically, with no need to set manual values unless you have a weird farm design.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Better Configured Rewarp</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/rewarper.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/rewarper.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Rewarper now has its own dedicated section in the menu, giving you more control over how it works.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Fast-Break Re-Introduced</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/fastbreak.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/fastbreak.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Fast-Break has been re-introduced natively into the client, with more control over how it works.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Wiggle-less Anti-Stuck</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/anti-stuck.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/anti-stuck.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi can now detect stucks much quicker via both distance comparisons and packets, and is much more efficient to get you out of them.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Combat</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Ghost</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/ghost.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/ghost.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Long awaited, the new Ghost script is finally here, with a proper failsafe, autowalking, autoheal, and more.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Zealot (Juju)</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/juju.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/juju.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">A brand new Zealot script has been manufactured, with high kill rates using the Juju method.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Zealot (Melee)</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/zealot-melee.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/zealot-melee.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The Melee method is also available, and whilst it has the lowest kill rate, it is the most legit looking.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Crypt / Rev Slayer</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/crypt.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/crypt.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The new Crypt / Rev Slayer script is here, being by far the most realistic and efficient slayer script on the market.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Zealot (Precursor)</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/precursor.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/precursor.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Similar to the Juju method, the Precursor method is also available, with a slightly lower kill rate.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Graveyard</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/graveyard.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/graveyard.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">A simple Graveyard script has been added, great for new players.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Foraging</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Park Foraging</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/park-foraging.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/park-foraging.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">A new Park Foraging script has been added, with a high XP/h rate as you blend in with the crowd.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Multiple Areas</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/multiple-areas.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/multiple-areas.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The park foraging script supports every tree area.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">More Realistic 2x2</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/2-by-2.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/2-by-2.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The 2x2 foraging script has been given lots more randomisation to make it look more realistic.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Auto Rod Swap</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/auto-rod-swap.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/auto-rod-swap.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The park foraging script supports auto rod swapping for the best XP/h.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Hub Foraging</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/hub-foraging.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/hub-foraging.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">A alternative hub foraging script has been added for those with new profiles.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Fishing</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Autokiller</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/autokiller-fishing.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/autokiller-fishing.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi's fishing scripts now have an autokiller, which will kill any mobs that you reel in or attack you.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Variety</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/fishing-variety.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/fishing-variety.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The fishing scripts have been upgraded to be much more stable and work in most situations.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Fully AFK</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/fishing-failsafe.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/fishing-failsafe.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">By using the 'With Auto-Travel' script, you can setup locations to fish at, and Taunahi will travel to them in the event of a failsafe.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Optional Anti-AFK</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/fishing-anti-afk.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/fishing-anti-afk.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">The fishing scripts have been given a random anti-afk system, which will move your mouse as well as strafe every so often.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Mini-Scripts/QOL</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Alchemy</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/alchemy.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/alchemy.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">A cheap alchemy script that can get you from 0 to 50 in just a few hours.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Fairy Souls</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/fairy-souls.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/fairy-souls.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">A QOL feature to point you to the nearest fairy soul with an ESP. Useful for leveling up your Skyblock level.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Anti-AFK</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/anti-afk-script.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/anti-afk-script.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">A long requested simple macro, something to just failsafe you back. Useful for minions.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Discord Integration</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Remote Control</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/remote-control.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/remote-control.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi now has a remote control feature via discord integration, which allows you to control your client from your phone.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Optimised Notifications</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/discord-notifs.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/discord-notifs.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi's notifications have been optimised to be much quicker, utilising screenshot lazy uploading.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Rich Presence (Optional)</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/rpc.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/rpc.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi now optionally has Discord Rich Presence, which will show your current script, earnings, and more.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Dynamic Rest</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Scattered Disconnects</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/dynamic-rest.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/dynamic-rest.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Timers are lame, use dynamic rest to disconnect create a somewhat regular (randomised) disconnect pattern.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Supports All Categories</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/dynamic-rest-foraging.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/dynamic-rest-foraging.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Dynamic rest supports all scripts that utilize failsafes, which means you can use it for farming, or foraging, or combat.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Highly Customisable</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/dynamic-rest-config.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/dynamic-rest-config.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Customize your disconnect pattern to your liking, with a wide range of options.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">Auto-Sell</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Both Bazaar & NPC</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/auto-sell.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/auto-sell.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi calculates which one would be the most profitable, and will sell to that one.</div>
+</div>
+<div class="changelog-change">
+<div class="changelog-change-title">Works Anytime</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/cocoa-autosell.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/cocoa-autosell.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Auto-Sell is smart. It won't just activate at the start of ξ stage like bad clients, it will activate wherever and the script will know how to continue after.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">Drops Runes & Stones</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/drop-junk.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/drop-junk.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">Taunahi will drop many 'trash' items such as runes and stones to make room for more valuable items. Useful for combat.</div>
+</div>
+</div>
+</div>
+<h2 class="changelog-section-name">and more...</h2>
+<div class="section-underline"></div>
+<div class="changelog-section">
+<div class="changelog-left">
+<div class="changelog-change">
+<div class="changelog-change-title">Unnamed Features</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/unnamed.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/unnamed.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">This page is just a summary. Additionally there are a large number of features that we haven't mentioned here.</div>
+</div>
+</div>
+<div class="dashed-line"></div>
+<div class="changelog-right">
+<div class="changelog-change">
+<div class="changelog-change-title">More to come...</div>
+<div class="showcase-video">
+<video preload="none" autoplay="false" muted="false" loop="true" data-src="https://assets.taunahi.net/showcases/v3.0/random.mp4">
+<source data-src="https://assets.taunahi.net/showcases/v3.0/random.mp4" type="video/mp4">
+</video>
+<div class="showcase-video-progress-bar-container">
+<div class="showcase-video-progress-bar"></div>
+</div>
+</div>
+<div class="changelog-change-description">And there's even more to come in subsequent versions (3.1, 3.2, ...).</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-explorer">
+<div class="explorer-list" id="title-explorer" style="margin-top: 24px;">
+
+</div>
+</div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const videos = document.querySelectorAll('.showcase-video video');
+
+            videos.forEach(function(video) {
+                // Fade in video
+                video.addEventListener('loadeddata', function() {
+                    video.style.opacity = "1";
+                });
+
+                // Progress bar
+                video.addEventListener('timeupdate', function() {
+                    const progressBar = this.parentNode.querySelector('.showcase-video-progress-bar');
+                    const percentage = (video.currentTime / video.duration) * 100;
+                    progressBar.style.width = percentage + '%';
+                });
+            });
+        });
+    </script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let lazyVideos = [].slice.call(document.querySelectorAll('video'));
+
+            if ('IntersectionObserver' in window) {
+                let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(video) {
+                        if (video.isIntersecting) {
+                            for (let source of video.target.children) {
+                                let videoSource = source.getAttribute('data-src');
+                                if (videoSource) {
+                                    source.src = videoSource;
+                                }
+                            }
+                            video.target.load();
+                            video.target.classList.remove('lazy');
+                            lazyVideoObserver.unobserve(video.target);
+                        }
+                    });
+                });
+
+                lazyVideos.forEach(function(lazyVideo) {
+                    lazyVideoObserver.observe(lazyVideo);
+                });
+            } else {
+                // Fall back to event listeners for older browsers
+                // This is not as efficient as using IntersectionObserver
+                let active = false;
+
+                const lazyLoad = function() {
+                    if (active === false) {
+                        active = true;
+
+                        setTimeout(function() {
+                            lazyVideos.forEach(function(lazyVideo) {
+                                if ((lazyVideo.getBoundingClientRect().top <= window.innerHeight && lazyVideo.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyVideo).display !== 'none') {
+                                    for (let source of lazyVideo.children) {
+                                        let videoSource = source.getAttribute('data-src');
+                                        if (videoSource) {
+                                            source.src = videoSource;
+                                        }
+                                    }
+                                    lazyVideo.load();
+                                    lazyVideo.classList.remove('lazy');
+
+                                    lazyVideos = lazyVideos.filter(function(video) {
+                                        return video !== lazyVideo;
+                                    });
+
+                                    if (lazyVideos.length === 0) {
+                                        document.removeEventListener('scroll', lazyLoad);
+                                        window.removeEventListener('resize', lazyLoad);
+                                        window.removeEventListener('orientationchange', lazyLoad);
+                                    }
+                                }
+                            });
+
+                            active = false;
+                        }, 200);
+                    }
+                };
+
+                document.addEventListener('scroll', lazyLoad);
+                window.addEventListener('resize', lazyLoad);
+                window.addEventListener('orientationchange', lazyLoad);
+            }
+        });
+    </script>
+</div>
+</body>
+</html>

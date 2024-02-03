@@ -1,0 +1,597 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width initial-scale=1">
+<link href="css.css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext" rel="stylesheet" type="text/css"><style type="text/css">html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+  --side-bar-bg-color: #fafafa;
+  --control-text-color: #777;
+}
+
+@include-when-export url(css.css);
+
+/* open-sans-regular - latin-ext_latin */
+/* open-sans-italic - latin-ext_latin */
+/* open-sans-700 - latin-ext_latin */
+/* open-sans-700italic - latin-ext_latin */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+  color: rgb(51, 51, 51);
+  line-height: 1.6;
+}
+
+#write {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px;
+  padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+  #write {
+    max-width: 1024px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  #write {
+    max-width: 1200px;
+  }
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+  margin-top: 30px;
+}
+
+a {
+  color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+  text-decoration: none;
+}
+h1 tt,
+h1 code {
+  font-size: inherit;
+}
+h2 tt,
+h2 code {
+  font-size: inherit;
+}
+h3 tt,
+h3 code {
+  font-size: inherit;
+}
+h4 tt,
+h4 code {
+  font-size: inherit;
+}
+h5 tt,
+h5 code {
+  font-size: inherit;
+}
+h6 tt,
+h6 code {
+  font-size: inherit;
+}
+h1 {
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+h2 {
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+h4 {
+  font-size: 1.25em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 1em;
+  color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+  margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+  margin: 0 0;
+}
+hr {
+  height: 2px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+li p.first {
+  display: inline-block;
+}
+ul,
+ol {
+  padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+  margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+blockquote {
+  border-left: 4px solid #dfe2e5;
+  padding: 0 15px;
+  color: #777777;
+}
+blockquote blockquote {
+  padding-right: 0;
+}
+table {
+  padding: 0;
+  word-break: initial;
+}
+table tr {
+  border: 1px solid #dfe2e5;
+  margin: 0;
+  padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+  background-color: #f8f8f8;
+}
+table th {
+  font-weight: bold;
+  border: 1px solid #dfe2e5;
+  border-bottom: 0;
+  margin: 0;
+  padding: 6px 13px;
+}
+table td {
+  border: 1px solid #dfe2e5;
+  margin: 0;
+  padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+  margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+  margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+  padding-left: 4px;
+}
+
+.code-tooltip {
+  box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+  border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+  border: 1px solid #e7eaed;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  padding: 0;
+  padding: 2px 4px 0px 4px;
+  font-size: 0.9em;
+}
+
+code {
+  background-color: #f3f4f4;
+  padding: 0 2px 0 2px;
+}
+
+.md-fences {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+  html {
+    font-size: 13px;
+  }
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+  pre {
+    word-wrap: break-word;
+  }
+}
+
+.md-fences {
+  background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+  padding: 1rem;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border: 0;
+  border-radius: 3px;
+  color: #777777;
+  margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+  bottom: .375rem;
+}
+
+.md-mathjax-midline {
+  background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+  left: -1.5625rem;
+  top: .375rem;
+}
+#write>h4.md-focus:before{
+  left: -1.5625rem;
+  top: .285714286rem;
+}
+#write>h5.md-focus:before{
+  left: -1.5625rem;
+  top: .285714286rem;
+}
+#write>h6.md-focus:before{
+  left: -1.5625rem;
+  top: .285714286rem;
+}
+.md-image>.md-meta {
+  /*border: 1px solid #ddd;*/
+  border-radius: 3px;
+  padding: 2px 0px 0px 4px;
+  font-size: 0.9em;
+  color: inherit;
+}
+
+.md-tag {
+  color: #a7a7a7;
+  opacity: 1;
+}
+
+.md-toc {
+  margin-top:20px;
+  padding-bottom:20px;
+}
+
+.sidebar-tabs {
+  border-bottom: none;
+}
+
+#typora-quick-open {
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+  background-color: #FAFAFA;
+  border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+  border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+  font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+  visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+  background-color: #fafafa;
+  background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+  color: #b4654d;
+}
+
+/*.total-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+  border: 0;
+}
+
+.dropdown-menu .divider {
+  border-color: #e5e5e5;
+  opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+  background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+  color: white;
+  background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+  background-color: #f5f8fa;
+  background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+}
+
+
+
+</style><title>Taunahi ToS</title>
+</head>
+<body class="typora-export os-windows"><div class="typora-export-content">
+<div id="write" class=""><h1 id="1-agreement-to-terms"><span>1. AGREEMENT TO TERMS</span></h1><p><span>These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;you&quot;) and Taunahi, concerning your access to and the use of </span><a href="index.htm" target="_blank" class="url">www.taunahi.net</a><span> as well as the software, or other media forms linked or otherwise connected thereto Taunahi.</span></p><p><span>You agree that by accessing </span><a href="index.htm" target="_blank" class="url">www.taunahi.net</a><span> and it&#39;s products, you have read, understood and agreed to be bound by all of these Terms and Conditions. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS AND CONDITIONS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND ITS SOFTWARE IMMEDIATELY.</span></p><p><span>We reserve the right to make changes or modifications to these Terms and Conditions from time to time. We will alert you about the changes by updating the &quot;Last updated&quot; date of these terms. Please ensure you check the applicable terms every time you use our website and it&#39;s products so that you understand which terms apply. </span></p><p><span>The information provided on this website is not intended for distribution or use by any person or entity where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country.</span></p><p><span>All users who are considered young children in the jurisdiction in which they reside (generally under the age of 13) must have the permission of, and be directly supervised by, their parent or guardian to sign up, purchase and use any products that is offered by Taunahi. If this is true, you must also have your parent or guardian read and agree to these terms prior to you using the site or product.</span></p><h1 id="2-intellectual-property-rights"><span>2. INTELLECTUAL PROPERTY RIGHTS</span></h1><p><span>Unless otherwise indicated, Taunahi&#39;s site and products is our proprietary property and all source code, databases, functionality, software, website design, trademarks and logos are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United Kingdom, international copyright laws, and international conventions. No part of the site or its products may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</span></p><p><span>Provided that you are eligible to use the site, you are granted a limited licence to access and use the site, to download or print any portion of the content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the site, content and products.</span></p><h1 id="3-user-representations"><span>3. USER REPRESENTATIONS</span></h1><p><span>By using the website, you represent and warrant that: (1) all registration information will be true and accurate; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these terms and conditions; (4) you will not access the site through automated or non-human means, outside of connections made by software, whether through a bot, script or otherwise; (5) you will not use the site or its&#39; products for any illegal or unauthorized purpose; and (6) your use of the software will not violate any law or regulation.</span></p><h1 id="4-user-registration"><span>4. USER REGISTRATION</span></h1><p><span>You agree to keep your password confidential and you will be responsible for all use of your account and password. We reserve the right to remove, reclaim or change a property of your account if we determine that such property is inappropriate, inaccurate or otherwise objectionable.</span></p><h1 id="5-prohibited-activities"><span>5. PROHIBITED ACTIVITIES</span></h1><p><span>You may not access or use the Taunahi&#39;s site or products for any purpose for which we make available and permit. The site and its&#39; products may not be used in connection with any commercial endeavours except those that are specifically endorsed or approved by us.</span></p><p><span>As a user of the site and it&#39;s products, you agree not to:</span></p><ul><li><span>Systematically retrieve data or other content from the site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</span></li><li><span>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</span></li><li><span>Circumvent, disable or otherwise interfere with security related features of the site or our products, including features that prevent or restrict the use, piracy or copying of any content or enforce limitations on the use of the site and/or content contained therein.</span></li><li><span>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the site and products.</span></li><li><span>Use any information obtained from the site to harass, abuse, harm, or impersonate, another person.</span></li><li><span>Make improper use of our support services or submit false reports of abuse or misconduct.</span></li><li><span>Use the site in a manner inconsistent with any applicable laws or regulations.</span></li><li><span>Engage in the unauthorized framing or linking to the site or other linked media and products.</span></li><li><span>Upload or transmit (or attempt to) viruses, trojan horses, or other material, including excessive use of capital letters and spamming, that interferes with any party&#39;s uninterrupted use and enjoyment of the site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the site.</span></li><li><span>Harass, annoy, intimidate, threaten or dox (release information relating to the user&#39;s location, name, or other personal information) any of our staff engaged in providing any portion of the site or product.</span></li><li><span>Copy or adapt the site and organisation&#39;s software, including but not limited to Java, JavaScript, HTML, or other code.</span></li><li><span>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising, or in any way making up a part of the site.</span></li><li><span>Make any unauthorized use of the site, including collecting usernames, email addresses and/or other properties of users by electronic or other means for the purpose any harmful purpose</span></li><li><span>Use the site or product as any effort as an example/advertisement to compete with us or otherwise use the site for any commercial reason.</span></li><li><span>Sell or otherwise give access of the product and/or site to unlicensed users.</span></li><li><span>Use any of our products to violate 3rd party guidelines, no matter the actions of other users.</span></li><li><span>Attempt to give access of your licence to other people, as well as share any software to unlicensed users.</span></li><li><span>Try and evade any ban on our site or product, such as creating a new account under different details.</span></li><li><span>Attempt to gain or spread the knowledge of whether people are users of Taunahi or not.</span></li></ul><h1 id="6-contribution-license"><span>6. CONTRIBUTION LICENSE</span></h1><p><span>You and Taunahi agree that we will access, store, process, and use any information and user-related data that you provide which is used for anti-piracy and authentication reasons.</span></p><p><span>By submitting suggestions or other feedback, you agree that we can share such feedback for any purpose without compensation to you.</span></p><h1 id="7-social-media"><span>7. SOCIAL MEDIA</span></h1><p><span>As part of our product(s) you have the ability to link your account with a 3rd party service, such as but not limited to, Discord and Mojang. You agree that when signing up to this service, you allow us to store information related to your 3rd party account. You understand (1) we may access, and store any content that you have provided to us, and (2) we may submit to and receive from your 3rd party account additional information.</span></p><h1 id="8-submissions"><span>8. SUBMISSIONS</span></h1><p><span>You acknowledge and agree that suggestions, questions, comments, ideas, feedback, or other information regarding the site and/or product provided by you to us are non-confidential and shall become our sole property. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your submissions.</span></p><h1 id="9-third-party-website-and-content"><span>9. THIRD-PARTY WEBSITE AND CONTENT</span></h1><p><span>The website and/or product may contain links to other websites, photographs, text, graphics, sounds, videos, information, software and other content or items belong to or originating from 3rd parties. Such 3rd party websites are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us, and we are not responsible for any 3rd party websites access through the site or any 3rd party content posted on, available through, or installed from the site, including the content, accuracy, offensiveness, opinions, reliability, privacy practices, or other policies of or contained in the 3rd party website or the 3rd party content. Including of linking to or permitting the use of 3rd party content does not imply approval or endorsement by us. You also understand advertisements/endorsements may not be from us, and may not represent our content accurately. You understand information in these advertisements/endorsements are taken at your own risk, and you should be aware these terms and conditions no longer govern.</span></p><p><span>Furthermore, you agree you cannot hold us accountable from any losses sustained by you or harm caused to you relating to or resulting in any way from any 3rd party content.</span></p><h1 id="10-site-management"><span>10. SITE MANAGEMENT</span></h1><p><span>We reserve the right, but not the obligation, to: (1) monitor the site and 3rd party content for violations of these Terms and Conditions; (2) take appropriate action against anyone whom, in our sole discretion, violates the law or these Terms and Conditions; (3) refuse, restrict access or limit the available of an active licence for owned products to you.</span></p><h1 id="11-term-and-termination"><span>11. TERM AND TERMINATION</span></h1><p><span>These Terms and Conditions shall remain in full force and effect while you use the website and/or its products. WE RESERVE THE RIGHT TO, WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES, AND ACCOUNT PROPERTIES SUCH AS 3RD PARTY ACCOUNT LINKS) TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS AND CONDITIONS OR ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING.</span></p><p><span>If we terminate your account, you are forbidden to register and create a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to deleting your account/licence, we reserve the right to take further legal action.</span></p><h1 id="12-modifications-and-interruptions"><span>12. MODIFICATIONS AND INTERRUPTIONS</span></h1><p><span>We reserve the right to change, modify, or remove the contents of Taunahi at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our website or products. We also reserve the right to modify, or discontinue all or part of Taunahi&#39;s website and products without notice at any time. We will not be liable to you or any third party modification, price change, suspension, or discontinuance of our website and/or products.</span></p><p><span>We cannot guarantee the website will be available at all times. Experiences in hardware, software, or other interruptions which means you cannot reach the website/product is not liable to us. We reserve the right to change, revise, update, discontinue or otherwise modify the website and/or products at any time for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the site during any downtime or discontinuance of the website. Nothing in these Terms and Conditions will be construed to obligate us to maintain Taunahi or to supply any corrections, updates, or releases in connection therewith.</span></p><h1 id="13-governing-law"><span>13. GOVERNING LAW</span></h1><p><span>These conditions are governed by and interpreted following the laws of the United Kingdom, which means that you may make a claim to defend your consumer protection rights in regards to these Conditions of Use in the United Kingdom, or in the EU country in which you reside.</span></p><h1 id="14-dispute-resolution"><span>14. DISPUTE RESOLUTION</span></h1><p><span>To control the cost of any dispute, or claim related to these Terms and Conditions, each dispute brought by you, you agree to first attempt to negotiate any dispute informally for at least two weeks.</span></p><p><span>You agree we have the rights to reject disputes if, but not limited to:</span></p><ul><li><span>Having broken any of the prohibited activities listed above.</span></li><li><span>Having owned the product for at least three days, without any request of a formal and/or informal dispute before this time.</span></li><li><span>Having actively utilised the product for more than 2 hours.</span></li><li><span>Any information you have used to sign up and/or purchase any products is inaccurate, or otherwise objectionable.</span></li></ul><h1 id="15-disclaimer"><span>15. DISCLAIMER</span></h1><p><span>TAUNAHI, ITS SITE AND PRODUCTS ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES/PRODUCTS WILL BE AT YOUR SOLE RISK. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF TAUNAHI&#39;S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PUNISHMENTS FROM 3RD PARTY SERVICES AS A RESULT OF USING THE PRODUCT/WEBSITE, (4) ANY CONTENT THAT IS PROVIDED TO USERS VIA 3RD PARTY PLATFORMS, INCLUDING BUT NOT LIMITED TO DISCORD OR YOUTUBE.</span></p><h1 id="16-limitations-of-liabiliy"><span>16. LIMITATIONS OF LIABILIY</span></h1><p><span>IN NO EVENT WILL TAUNAHI&#39;S STAFF BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGING ARISING FROM YOUR USE OF THE SITE OR PRODUCTS, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. </span></p><h1 id="17-user-data"><span>17. USER DATA</span></h1><p><span>We will maintain certain data that you enter into the website for the purpose of managing and authenticating, as well as data relating to your use of our products. Taunahi agrees to perform routine backups of data, but you agree you are solely responsible for all data that you send to our server or that relates to any activity you undertake when accessing our site or product.</span></p><p><span>Taunahi agrees to not reveal any user data unless you are in violation of these Terms and Conditions, for example, but not limited to, sharing user data with the customer's bank in the case of a chargeback. There is more information on this in our privacy policy.</span></p><h1 id="18-electronic-communications"><span>18. ELECTRONIC COMMUNICATIONS</span></h1><p><span>You agree that you may receive electronic communications such as emails when you sign up to the website.</span></p><h1 id="19-miscellaneous"><span>19. MISCELLANEOUS</span></h1><p><span>You agree our failure to enforce any right shall not operate and shall not be an indicator of such right. We may assign any or all of our rights and obligations to other at any time, and we shall not be responsible or liable for any loss, damage, delay or failure to act caused by any cause beyond our control. You agree that these Terms and Conditions will not be manipulated against us by virtue of having drafted them. </span></p><h1 id="20-contact-us"><span>20. CONTACT US</span></h1><p><span>In order to resolve a complaint regarding the site or its products, please contact us at </span><a href="cdn-cgi/l/email-protection.html#c5b6b0b5b5aab7b185b1a4b0aba4adacebaba0b1" target="_blank" class="url"><span class="__cf_email__" data-cfemail="c9babcb9b9a6bbbd89bda8bca7a8a1a0e7a7acbd">[email&#160;protected]</span></a><span>, join our discord at </span><a href="invite/taunahi.html" target="_blank" class="url">www.taunahi.net/discord</a><span>.</span></p></div></div>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

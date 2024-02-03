@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taunahi - Hypixel Skyblock Scripts & Macros</title>
+<script src="detect-gpu@5.0.38/dist/detect-gpu.umd.js"></script>
+<script src="js/Gradient.js"></script>
+<script src="js/animateText.js"></script>
+<script type="text/javascript" src="js/numberFormatter.js"></script>
+<link rel="preconnect" href="index-1.htm">
+<link rel="stylesheet" href="inter/inter.css">
+<link href="css/vyker.css" rel="stylesheet">
+<script src="npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<meta name="theme-color" content="#7f2f30">
+<link rel="icon" type="image/png" href="logo-cube-small.png">
+<meta property="og:title" content="Taunahi" -="" hypixel="" skyblock="" scripts="" &="" macros="">
+<meta property="og:image" content="https://assets.taunahi.net/generic-taunahi-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:url" content="https://www.taunahi.net/home">
+<meta property="og:description" content="A project created to create better, and cheaper, alternatives to scripts and modifications.">
+</head>
+<body>
+<canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
+<script>
+    async function detectGPU() {
+        const gpuTier = await DetectGPU.getGPUTier()
+        const hasGPUAcceleration = gpuTier.tier >= 2
+        console.log("GPU Acceleration: " + hasGPUAcceleration);
+        console.log("GPU Tier: " + gpuTier.tier);
+        await processGPUResults(hasGPUAcceleration, gpuTier.tier)
+    }
+
+    async function processGPUResults(hasGPUAcceleration, gpuTier) {
+        let gradientCanvas = document.getElementById('gradient-canvas')
+
+        if (gpuTier === 0) {
+            gradientCanvas.style.background = 'linear-gradient(318deg, rgba(236,96,96,1) 0%, rgba(103,56,56,1) 25%, rgba(36,36,36,1) 54%)';
+        } {
+            new Gradient({
+                canvas: '#gradient-canvas',
+                colors: ['#1d1e20', '#612f30', '#1d1e20', '#1d1e20'],
+                static: gpuTier < 3,
+            });
+            
+            
+        }
+
+        gradientCanvas.style.opacity = "1";
+
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        if (hasGPUAcceleration) {
+            let shouldBlurElements = document.getElementsByClassName("element-item-container");
+            for (let i = 0; i < shouldBlurElements.length; i++) {
+                shouldBlurElements[i].style.backdropFilter = "blur(10px)";
+            }
+
+            let navbar = document.getElementById("taunahi-nav");
+            if (navbar) {
+                navbar.style.backdropFilter = "blur(10px)";
+            }
+        }
+
+        for (const funcName of Object.getOwnPropertyNames(this)) {
+            if (typeof this[funcName] === 'function' && funcName.startsWith("afterGpuCheck")) {
+                const fn = window[funcName];
+                fn(hasGPUAcceleration);
+            }
+        }
+    }
+
+    
+    
+        detectGPU();
+    
+</script>
+<div id="real-content">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="taunahi-nav">
+<div class="container-fluid justify-content-between">
+
+<div class="d-flex">
+
+<div class="navbar-brand me-2 mb-1 d-flex align-items-center">
+<a href="home.html" style="
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+">
+<img src="logo-transparent-small.png" height="30" alt="MDB Logo" loading="lazy" style="margin-top: 2px;">
+<h5 class="navbar-taunahi-header">Taunahi</h5>
+</a>
+<a href="invite/taunahi.html" target="_blank">
+<img src="discord-white.png" height="30" alt="Discord Logo" class="highlight-hover" style="margin-top: 2px; margin-left: 30px;">
+</a>
+<a href="cdn-cgi/l/email-protection.html#097a7c7979667b7d497d687c6768616027676c7d">
+<img src="mail.png" height="25" style="
+    margin-top: 2px;
+    margin-left: 10px;
+" alt="Email" class="highlight-hover">
+</a>
+</div>
+
+
+</div>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse flex-row navbar-right" id="navbarSupportedContent">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="features.html">Features</a>
+</li>
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="dashboard.html">Dashboard</a>
+</li>
+
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center v3-0-navbar-text" href="latest.html">Edition 3.0</a>
+</li>
+</ul>
+</div>
+
+</div>
+</nav>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function afterGpuCheckNavbar(hasGPUAcceleration) {
+    let navbar = document.getElementById("taunahi-nav");
+
+    let gradientBackground = "transparent linear-gradient(94deg, rgba(35, 35, 35, 0) 0%, #23232395 100%) 0% 0% no-repeat padding-box";
+    let solidBackground = "#212121";
+
+    navbar.style.background = gradientBackground;
+    navbar.style.filter = "drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))";
+    navbar.style.mixBlendMode = "normal";
+    navbar.style.backgroundBlendMode = "normal";
+
+    let navbarToggler = document.getElementsByClassName("navbar-toggler")[0];
+
+    addEventListener("scroll", function() {
+      if (window.scrollY > 0) {
+        navbar.style.background = solidBackground;
+      } else if (navbarToggler.getAttribute("aria-expanded") === "false") {
+        navbar.style.background = gradientBackground;
+      }
+    });
+
+    navbarToggler.addEventListener("click", function() {
+        if (navbarToggler.getAttribute("aria-expanded") === "true") {
+            navbar.style.background = solidBackground;
+        } else if (window.scrollY === 0) {
+            navbar.style.background = gradientBackground;
+        }
+    });
+  }
+</script>
+<div class="billboard billboard-center vertical-list home-page" style="justify-content: center;">
+<div class="billboard-content" style="align-items: end;">
+<div class="billboard-section center-mobile" style="width: 100%;">
+<div class="main-title">
+<h1><span>Taunahi</span></h1>
+<h1><span>Taunahi</span></h1>
+</div>
+<p class="title-description">Next Generation Skyblock Scripts</p>
+<div class="billboard-description-container">
+<p class="billboard-description"></p>
+</div>
+<div class="actions">
+<a class="btn billboard-btn red" href="dashboard.html">Get Started</a>
+<a class="btn billboard-btn grey" href="features.html">Why Taunahi?</a>
+<a class="btn billboard-btn blue" href="invite/taunahi.html" target="_blank">
+<img src="discord.svg" alt="Discord" style="max-height: 20px; max-width: 20px; margin-right: 8px;">
+Discord
+</a>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">&#128293</div></div>
+<p class="element-title">Premium. Quality.</p>
+<p class="element-description">Taunahi updates are handled with delicacy so that you always get the best results possible.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">&#128077</div></div>
+<p class="element-title">Trusted</p>
+<p class="element-description">Taunahi is by far the most bought script on the market, taking #1 only a few weeks after launch.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">&#128737</div></div>
+<p class="element-title">Safety</p>
+<p class="element-description">Without doubt the most advanced anti-staff system available in any scripting mod.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">&#127873</div></div>
+<p class="element-title">Rich Features</p>
+<p class="element-description">Taunahi provides a ginormous amount of features that many other mods simply don't offer, or are designed poorly.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">&#128181</div></div>
+<p class="element-title">Numerous Scripts - Package Deal.</p>
+<p class="element-description">Taunahi will give you 25+ scripts that are far better quality than individual ones that cost 3x more.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="forge.svg" alt=""></div>
+<p class="element-title">No MacroMod. No Baritone.</p>
+<p class="element-description">All modules are fully coded by us from the ground up, outperforming any other script and their dependencies.</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        const descriptions = [
+            "Get ready to <span class=\"red\">automate the boring tasks and get rich</span>, so you can finally play the fun parts.",
+            "Surpass friends who've been playing for years, in just a few <span class=\"red\">weeks.</span>",
+            "Stop overpaying for bad scripts - get the best scripts on the market, for <span class=\"red\">a great price.</span>",
+        ];
+        document.getElementsByClassName("billboard-description")[0].innerHTML = descriptions[0];
+        let index = 1;
+        // Make text slide in and out
+        setInterval(() => {
+            getCurrentDescription().classList.add("slide-out");
+            setTimeout(() => {
+                let current = getCurrentDescription();
+                current.innerHTML = descriptions[index];
+                current.classList.remove("slide-out");
+                current.classList.add("slide-in");
+                setTimeout(() => {
+                    let current = getCurrentDescription();
+                    current.classList.remove("slide-in");
+                }, 500);
+                index++;
+                if (index >= descriptions.length) index = 0;
+            }, 500);
+        }, 12_000);
+
+        function getCurrentDescription() {
+            return document.getElementsByClassName("billboard-description")[0];
+        }
+    </script>
+</body>
+</html>

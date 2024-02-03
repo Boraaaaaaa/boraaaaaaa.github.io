@@ -1,0 +1,452 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taunahi - Sign In</title>
+<script src="detect-gpu@5.0.38/dist/detect-gpu.umd.js"></script>
+<script src="js/Gradient.js"></script>
+<script src="js/animateText.js"></script>
+<script type="text/javascript" src="js/numberFormatter.js"></script>
+<link rel="preconnect" href="index-1.htm">
+<link rel="stylesheet" href="inter/inter.css">
+<link href="css/vyker.css" rel="stylesheet">
+<script src="npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<meta name="theme-color" content="#7f2f30">
+<link rel="icon" type="image/png" href="logo-cube-small.png">
+<meta property="og:title" content="Taunahi" -="" sign="" in="">
+<meta property="og:image" content="https://assets.taunahi.net/generic-taunahi-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:url" content="https://www.taunahi.net/logon">
+<meta property="og:description" content="A project created to create better, and cheaper, alternatives to scripts and modifications.">
+</head>
+<body>
+<canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
+<script>
+    async function detectGPU() {
+        const gpuTier = await DetectGPU.getGPUTier()
+        const hasGPUAcceleration = gpuTier.tier >= 2
+        console.log("GPU Acceleration: " + hasGPUAcceleration);
+        console.log("GPU Tier: " + gpuTier.tier);
+        await processGPUResults(hasGPUAcceleration, gpuTier.tier)
+    }
+
+    async function processGPUResults(hasGPUAcceleration, gpuTier) {
+        let gradientCanvas = document.getElementById('gradient-canvas')
+
+        if (gpuTier === 0) {
+            gradientCanvas.style.background = 'linear-gradient(318deg, rgba(236,96,96,1) 0%, rgba(103,56,56,1) 25%, rgba(36,36,36,1) 54%)';
+        } {
+            new Gradient({
+                canvas: '#gradient-canvas',
+                colors: ['#1d1e20', '#612f30', '#1d1e20', '#1d1e20'],
+                static: gpuTier < 3,
+            });
+            
+            
+        }
+
+        gradientCanvas.style.opacity = "1";
+
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        if (hasGPUAcceleration) {
+            let shouldBlurElements = document.getElementsByClassName("element-item-container");
+            for (let i = 0; i < shouldBlurElements.length; i++) {
+                shouldBlurElements[i].style.backdropFilter = "blur(10px)";
+            }
+
+            let navbar = document.getElementById("taunahi-nav");
+            if (navbar) {
+                navbar.style.backdropFilter = "blur(10px)";
+            }
+        }
+
+        for (const funcName of Object.getOwnPropertyNames(this)) {
+            if (typeof this[funcName] === 'function' && funcName.startsWith("afterGpuCheck")) {
+                const fn = window[funcName];
+                fn(hasGPUAcceleration);
+            }
+        }
+    }
+
+    
+    
+        detectGPU();
+    
+</script>
+<div id="real-content">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="taunahi-nav">
+<div class="container-fluid justify-content-between">
+
+<div class="d-flex">
+
+<div class="navbar-brand me-2 mb-1 d-flex align-items-center">
+<a href="home.html" style="
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+">
+<img src="logo-transparent-small.png" height="30" alt="MDB Logo" loading="lazy" style="margin-top: 2px;">
+<h5 class="navbar-taunahi-header">Taunahi</h5>
+</a>
+<a href="invite/taunahi.html" target="_blank">
+<img src="discord-white.png" height="30" alt="Discord Logo" class="highlight-hover" style="margin-top: 2px; margin-left: 30px;">
+</a>
+<a href="cdn-cgi/l/email-protection.html#0a797f7a7a65787e4a7e6b7f646b626324646f7e">
+<img src="mail.png" height="25" style="
+    margin-top: 2px;
+    margin-left: 10px;
+" alt="Email" class="highlight-hover">
+</a>
+</div>
+
+
+</div>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse flex-row navbar-right" id="navbarSupportedContent">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="features.html">Features</a>
+</li>
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="dashboard.html">Dashboard</a>
+</li>
+
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center v3-0-navbar-text" href="latest.html">Edition 3.0</a>
+</li>
+</ul>
+</div>
+
+</div>
+</nav>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function afterGpuCheckNavbar(hasGPUAcceleration) {
+    let navbar = document.getElementById("taunahi-nav");
+
+    let gradientBackground = "transparent linear-gradient(94deg, rgba(35, 35, 35, 0) 0%, #23232395 100%) 0% 0% no-repeat padding-box";
+    let solidBackground = "#212121";
+
+    navbar.style.background = gradientBackground;
+    navbar.style.filter = "drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))";
+    navbar.style.mixBlendMode = "normal";
+    navbar.style.backgroundBlendMode = "normal";
+
+    let navbarToggler = document.getElementsByClassName("navbar-toggler")[0];
+
+    addEventListener("scroll", function() {
+      if (window.scrollY > 0) {
+        navbar.style.background = solidBackground;
+      } else if (navbarToggler.getAttribute("aria-expanded") === "false") {
+        navbar.style.background = gradientBackground;
+      }
+    });
+
+    navbarToggler.addEventListener("click", function() {
+        if (navbarToggler.getAttribute("aria-expanded") === "true") {
+            navbar.style.background = solidBackground;
+        } else if (window.scrollY === 0) {
+            navbar.style.background = gradientBackground;
+        }
+    });
+  }
+</script>
+<div class="billboard-center small-padding home-page">
+<div class="billboard-content justify-content-between gap-5">
+<div class="billboard-section hide-mobile">
+<div class="main-title">
+<h1><span>Dashboard</span></h1>
+<h1><span>Dashboard</span></h1>
+</div>
+<p class="title-description">Sign up or Sign in</p>
+<div class="billboard-description-container">
+<p class="billboard-description">Sign in to purchase the mod, see your statistics, download the mod, get guide information, and more.</p>
+</div>
+</div>
+<div class="signup-section element-item-container">
+<div class="signup-container">
+<div class="title">Login</div>
+<div class="email">
+<div class="label">Email</div>
+<input type="text" name="email" placeholder="Email">
+</div>
+<div class="password">
+<div class="label">Password</div>
+<input type="password" name="password" placeholder="Password">
+<div class="forgot-password">
+<button class="text-button" onclick="revealForgotPassword()"><span class="red">Forgot password?</span></button>
+</div>
+</div>
+<div class="uuid">
+<div class="label">Minecraft UUID</div>
+<input type="text" name="uuid" placeholder="UUID">
+<div class="uuid-help">
+<button class="text-button" onclick="revealWhyUUIDNeeded()" style="text-align: left;"><span class="red">Why is this needed?</span></button>
+<button class="text-button" onclick="revealUUIDGetter()"><span class="red">Username -> UUID</span></button>
+</div>
+</div>
+<div class="submit">
+<button class="long-button" onclick="submitLogin()" style="margin-bottom: 20px;">Login</button>
+</div>
+<div class="signup">
+<button class="text-button" onclick="changeSubmitReason()">Don't have an account? <span class="red">Sign up here.</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="uuid-info" class="page-mask">
+<div class="screen-alert">
+<div class="title">Why is this needed?</div>
+<div class="description">
+<p>To prevent piracy, the mod requires a UUID to be entered (every Minecraft account has a UUID, i.e. a unique id).
+This is to ensure that only the person who purchased the mod can use it.</p>
+<p>If you would like to use the mod on more than 1 account, or want to switch your UUID later, then don't worry, you can do that after signing up.</p>
+<p>Your UUID will never be known to anyone other than you, or us (the developers). For more information, please see our
+<a href="privacy.html" class="red">privacy policy</a> and <a href="tos.html" class="red">terms of service</a>.</p>
+</div>
+<button class="long-button" onclick="hideWhyUUIDNeeded()">Close</button>
+</div>
+</div>
+<div id="uuid-getter" class="page-mask">
+<div class="screen-alert">
+<div class="title">Username -> UUID</div>
+<div class="description">
+<p>Enter your Minecraft username below.</p>
+</div>
+<input class="taunahi-search-input" autocomplete="off" id="search-bar" type="text" name="search" placeholder="Notch">
+<button class="long-button uuid-getter-button" id="uuid-getter-button" onclick="hideUUIDGetter()">Cancel</button>
+</div>
+</div>
+<div id="forgot-password" class="page-mask">
+<div class="screen-alert">
+<div class="title">Forgot Password</div>
+<div class="description">
+<p>Enter your email below, and we will send you a link to reset your password.</p>
+</div>
+<input class="taunahi-search-input" autocomplete="off" id="email-input" type="text" name="search" placeholder="alex@gmail.com" style="background: url('images/email.png') no-repeat scroll center left 10px, rgba(26, 26, 26, 0.2);">
+<button class="long-button forgotPasswordButton" id="forgotPasswordButton" onclick="processAndHideForgotPassword()">Done</button>
+</div>
+</div>
+<script>
+    let forgotPasswordElement = document.getElementById("forgot-password");
+
+    function revealForgotPassword() {
+        forgotPasswordElement.className = "page-mask show";
+    }
+
+    function processAndHideForgotPassword() {
+        let email = document.getElementById("email-input").value;
+
+        document.getElementById("forgot-password").getElementsByClassName("long-button")[0].disabled = true;
+
+        if (email === "" || !email.includes("@")) {
+            forgotPasswordElement.className = "page-mask";
+            return;
+        }
+
+        fetch("/api/v1/public/reset_password?email=" + email, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => {
+            if (response.status !== 200) {
+                animateText(".forgotPasswordButton", "An error occurred, contact developers.");
+                console.log(response);
+                return;
+            }
+
+            response.json().then(json => {
+                if (!json.success) {
+                    animateText(".forgotPasswordButton", json.error);
+                    return;
+                }
+
+                animateText(".forgotPasswordButton", "Confirmation email sent, check your inbox.");
+            });
+        });
+    }
+</script>
+<script>
+    let revealUUIDGetterElement = document.getElementById("uuid-getter");
+    let uuidSearchBarElement = document.getElementById("search-bar");
+
+    function revealUUIDGetter() {
+        uuidSearchBarElement.value = "";
+        document.getElementById("uuid-getter-button").innerText = "Cancel";
+        revealUUIDGetterElement.className = "page-mask show";
+        uuidSearchBarElement.focus();
+    }
+
+    function hideUUIDGetter() {
+        if (!shouldSearchUUID()) {
+            revealUUIDGetterElement.className = "page-mask";
+            return;
+        }
+
+        // Disable button
+        document.getElementById("uuid-getter-button").disabled = true;
+
+        animateText(".uuid-getter-button", "Processing...");
+
+        let url = "/api/v1/public/get_uuid?username=" + uuidSearchBarElement.value;
+        fetch(url).then(response => {
+            document.getElementById("uuid-getter-button").disabled = false;
+            if (!response.ok) {
+                animateText(".uuid-getter-button", "Error (possible invalid username): " + response.status);
+                console.log(response);
+                return;
+            }
+
+            response.json().then(data => {
+                if (!data.success) {
+                    animateText(".uuid-getter-button", "UUID not found, are you sure this is a real username?");
+                    console.log(data);
+                    return;
+                }
+
+                document.getElementsByName("uuid")[0].value = data.uuid;
+                revealUUIDGetterElement.className = "page-mask";
+            });
+        })
+    }
+
+    uuidSearchBarElement.addEventListener("input", renameButton);
+
+    function shouldSearchUUID() {
+        return uuidSearchBarElement.value.length > 2;
+    }
+
+    function renameButton() {
+        document.getElementById("uuid-getter-button").innerText = shouldSearchUUID() ? "Search" : "Cancel";
+    }
+</script>
+<script>
+    let uuidInformationElement = document.getElementById("uuid-info");
+
+    function revealWhyUUIDNeeded() {
+        uuidInformationElement.className = "page-mask show";
+    }
+
+    function hideWhyUUIDNeeded() {
+        uuidInformationElement.className = "page-mask";
+    }
+</script>
+<script>
+    let loggingIn = true;
+
+    let submit = document.querySelector(".submit button");
+    let uuidBox = document.querySelector(".uuid");
+    let signupButton = document.querySelector(".signup button");
+    let loginTitle = document.querySelector(".title");
+
+    function changeSubmitReason() {
+        if (loggingIn) {
+            uuidBox.style.maxHeight = (uuidBox.scrollHeight - 20) + "px";
+            animateText(".title", "Sign up");
+            animateText(".submit button", "Sign up");
+            uuidBox.className = "uuid show";
+            signupButton.innerHTML = "Already have an account? <span class=\"red\">Login here.</span>";
+        } else {
+            uuidBox.style.maxHeight = "0";
+            animateText(".title", "Login");
+            animateText(".submit button", "Login");
+            uuidBox.className = "uuid";
+            signupButton.innerHTML = "Don't have an account? <span class=\"red\">Sign up here.</span>";
+        }
+        loggingIn = !loggingIn;
+    }
+
+    function fitSubmitTopMargin() {
+        let submit = document.querySelector(".submit");
+        let signupSection = document.querySelector(".signup-section");
+        let submitTopMargin = (signupSection.clientHeight - submit.clientHeight) / 2;
+        submit.style.marginTop = submitTopMargin + "px";
+    }
+</script>
+<script>
+    function submitLogin() {
+        if (loggingIn) {
+            animateText(".submit button", "Logging in...");
+
+            const params = {
+                body: new URLSearchParams({
+                    username: document.querySelector("input[name=email]").value,
+                    password: document.querySelector("input[name=password]").value,
+                    rememberMe: true,
+                }),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+                }
+            };
+
+            fetch("/login", params).then(async response => {
+                if (response.status === 401) {
+                    response.text().then(text => {
+                        if (text === "Bad credentials") {
+                            text = "Invalid email or password.";
+                        }
+                        animateText(".submit button", text);
+                    });
+                    return;
+                } else if (response.status !== 200) {
+                    await animateText(".submit button", "Unable to login, try again later or contact support.");
+                    return;
+                }
+
+                if (response.redirected && response.url.endsWith("?error")) {
+                    await animateText(".submit button", "Invalid email or password.");
+                    return;
+                }
+
+                window.location.href = response.url
+            })
+        } else {
+            animateText(".submit button", "Signing up...");
+
+            const params = {
+                body: JSON.stringify({
+                    email: document.querySelector("input[name=email]").value,
+                    password: document.querySelector("input[name=password]").value,
+                    uuid: document.querySelector("input[name=uuid]").value,
+                }),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json;charset=UTF-8"
+                }
+            };
+
+            fetch("/api/v1/registration", params).then(async response => {
+                if (response.status !== 200) {
+                    await animateText(".submit button", "Unable to register, try again later or contact support.");
+                    console.log(response.json());
+                    return;
+                }
+
+                let result = await response.json();
+                if (!result.success) {
+                    let error = result["error"];
+                    await animateText(".submit button", error);
+                    return;
+                }
+
+                await animateText(".submit button", "Registered! Check your emails for a verification link.");
+            })
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taunahi - Features</title>
+<script src="detect-gpu@5.0.38/dist/detect-gpu.umd.js"></script>
+<script src="js/Gradient.js"></script>
+<script src="js/animateText.js"></script>
+<script type="text/javascript" src="js/numberFormatter.js"></script>
+<link rel="preconnect" href="index-1.htm">
+<link rel="stylesheet" href="inter/inter.css">
+<link href="css/vyker.css" rel="stylesheet">
+<script src="npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<meta name="theme-color" content="#7f2f30">
+<link rel="icon" type="image/png" href="logo-cube-small.png">
+<meta property="og:title" content="Taunahi" -="" features="">
+<meta property="og:image" content="https://assets.taunahi.net/generic-taunahi-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:url" content="https://www.taunahi.net/features">
+<meta property="og:description" content="A project created to create better, and cheaper, alternatives to scripts and modifications.">
+</head>
+<body>
+<canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
+<script>
+    async function detectGPU() {
+        const gpuTier = await DetectGPU.getGPUTier()
+        const hasGPUAcceleration = gpuTier.tier >= 2
+        console.log("GPU Acceleration: " + hasGPUAcceleration);
+        console.log("GPU Tier: " + gpuTier.tier);
+        await processGPUResults(hasGPUAcceleration, gpuTier.tier)
+    }
+
+    async function processGPUResults(hasGPUAcceleration, gpuTier) {
+        let gradientCanvas = document.getElementById('gradient-canvas')
+
+        if (gpuTier === 0) {
+            gradientCanvas.style.background = 'linear-gradient(318deg, rgba(236,96,96,1) 0%, rgba(103,56,56,1) 25%, rgba(36,36,36,1) 54%)';
+        } {
+            new Gradient({
+                canvas: '#gradient-canvas',
+                colors: ['#1d1e20', '#612f30', '#1d1e20', '#1d1e20'],
+                static: gpuTier < 3,
+            });
+            
+            
+        }
+
+        gradientCanvas.style.opacity = "1";
+
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        if (hasGPUAcceleration) {
+            let shouldBlurElements = document.getElementsByClassName("element-item-container");
+            for (let i = 0; i < shouldBlurElements.length; i++) {
+                shouldBlurElements[i].style.backdropFilter = "blur(10px)";
+            }
+
+            let navbar = document.getElementById("taunahi-nav");
+            if (navbar) {
+                navbar.style.backdropFilter = "blur(10px)";
+            }
+        }
+
+        for (const funcName of Object.getOwnPropertyNames(this)) {
+            if (typeof this[funcName] === 'function' && funcName.startsWith("afterGpuCheck")) {
+                const fn = window[funcName];
+                fn(hasGPUAcceleration);
+            }
+        }
+    }
+
+    
+    
+        detectGPU();
+    
+</script>
+<div id="real-content">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="taunahi-nav">
+<div class="container-fluid justify-content-between">
+
+<div class="d-flex">
+
+<div class="navbar-brand me-2 mb-1 d-flex align-items-center">
+<a href="home.html" style="
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+">
+<img src="logo-transparent-small.png" height="30" alt="MDB Logo" loading="lazy" style="margin-top: 2px;">
+<h5 class="navbar-taunahi-header">Taunahi</h5>
+</a>
+<a href="invite/taunahi.html" target="_blank">
+<img src="discord-white.png" height="30" alt="Discord Logo" class="highlight-hover" style="margin-top: 2px; margin-left: 30px;">
+</a>
+<a href="cdn-cgi/l/email-protection.html#a9dadcd9d9c6dbdde9ddc8dcc7c8c1c087c7ccdd">
+<img src="mail.png" height="25" style="
+    margin-top: 2px;
+    margin-left: 10px;
+" alt="Email" class="highlight-hover">
+</a>
+</div>
+
+
+</div>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse flex-row navbar-right" id="navbarSupportedContent">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="features.html">Features</a>
+</li>
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center" href="dashboard.html">Dashboard</a>
+</li>
+
+<li class="nav-item navbar-space me-3 me-lg-1">
+<a class="nav-link d-sm-flex align-items-sm-center v3-0-navbar-text" href="latest.html">Edition 3.0</a>
+</li>
+</ul>
+</div>
+
+</div>
+</nav>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function afterGpuCheckNavbar(hasGPUAcceleration) {
+    let navbar = document.getElementById("taunahi-nav");
+
+    let gradientBackground = "transparent linear-gradient(94deg, rgba(35, 35, 35, 0) 0%, #23232395 100%) 0% 0% no-repeat padding-box";
+    let solidBackground = "#212121";
+
+    navbar.style.background = gradientBackground;
+    navbar.style.filter = "drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))";
+    navbar.style.mixBlendMode = "normal";
+    navbar.style.backgroundBlendMode = "normal";
+
+    let navbarToggler = document.getElementsByClassName("navbar-toggler")[0];
+
+    addEventListener("scroll", function() {
+      if (window.scrollY > 0) {
+        navbar.style.background = solidBackground;
+      } else if (navbarToggler.getAttribute("aria-expanded") === "false") {
+        navbar.style.background = gradientBackground;
+      }
+    });
+
+    navbarToggler.addEventListener("click", function() {
+        if (navbarToggler.getAttribute("aria-expanded") === "true") {
+            navbar.style.background = solidBackground;
+        } else if (window.scrollY === 0) {
+            navbar.style.background = gradientBackground;
+        }
+    });
+  }
+</script>
+<div class="billboard billboard-center vertical-list">
+
+<div class="billboard-content extra-vertical-padding">
+<div class="billboard-section">
+<p class="title-description">Farming</p>
+<div class="billboard-description-container">
+<p class="billboard-description">All the fully automatic scripts that will level up your farming skill and earn you coins. Supports a high amount of both basic and advanced farm designs.</p>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); border-radius: 6px 0px 0px 6px;"></div>
+<div class="element-icon no-padding" style="width:204px;"><img src="crops.svg" alt=""></div>
+<p class="element-title">Wart & Crops</p>
+<p class="element-description">Realistic scripts for automating hours of automatic farming with no downtime, working for a great number of various farm designs.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); border-radius: 6px 0px 0px 6px;"></div>
+<div class="element-icon no-padding" style="width:98px;"><img src="pumpkin_and_melon_3.webp" alt=""></div>
+<p class="element-title">Pumpkin & Melon</p>
+<p class="element-description">Great option for both XP and money.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="cactus.webp" alt=""></div>
+<p class="element-title">Cactus</p>
+<p class="element-description">One of the best options for money, consistently high prices.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="cocoa.svg" alt=""></div>
+<p class="element-title">Cocoa Bean</p>
+<p class="element-description">Also a good choice for money.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="mushroom.webp" alt=""></div>
+<p class="element-title">Mushroom</p>
+<p class="element-description">The best crop to farm for XP by far.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="cane.svg" alt=""></div>
+<p class="element-title">Sugarcane</p>
+<p class="element-description">Sugarcane is an okay middle ground between XP and money, but easy to get high scores in.</p>
+</article>
+</div>
+</div>
+</div>
+
+<div class="billboard-content extra-vertical-padding">
+<div class="billboard-section">
+<p class="title-description">Combat</p>
+<div class="billboard-description-container">
+<p class="billboard-description">Scripts to maximize your combat level, complete quests, and earn lots of money with both beginner and end-game gear.</p>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="premium"></div>
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="ghost.svg" alt=""></div>
+<p class="element-title">Ghost</p>
+<p class="element-description">One of the most profitable scripts ever, going up to <span class="red">~45 mil</span> an hour at the best gear, but it needs very expensive gear.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="premium"></div>
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/crypt.webp" alt=""></div>
+<p class="element-title">Crypt / Rev Slayer</p>
+<p class="element-description">A fully AFK script that endlessly kills Ghouls with an incredibly smooth pathfinder & autowalker. Full failsafes, everything. Includes an option to automatically start/complete quests.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="premium"></div>
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="bow2.webp" alt=""></div>
+<p class="element-title">Zealot (Ranged)</p>
+<p class="element-description">A script that uses ranged weapons such as <span class="red">Juju & Precusor Eye</span> to kill zealots at a much higher frequency than melee scripts.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="premium"></div>
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="zealot.svg" alt=""></div>
+<p class="element-title">Zealot (Melee)</p>
+<p class="element-description">A basic (still incredibly smooth) melee script that runs around the dragons nest (or brusier areas) killing Zealots.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/rotten_flesh.webp" alt=""></div>
+<p class="element-title">Graveyard</p>
+<p class="element-description">Amazing for fresh accounts, simply runs around killing zombies in the graveyard.</p>
+</article>
+</div>
+</div>
+</div>
+
+<div class="billboard-content extra-vertical-padding">
+<div class="billboard-section">
+<p class="title-description">Foraging</p>
+<div class="billboard-description-container">
+<p class="billboard-description">Get to level 50 in Foraging in just a few days, no joke.</p>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="premium"></div>
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/golden_axe.webp" alt=""></div>
+<p class="element-title">Park Foraging</p>
+<p class="element-description">Select your foraging area and endlessly autowalk around breaking trees at high speed. Supports <span class="red">rod swapping</span>, autosell, failsafe, everything.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/wooden-axe.webp" alt=""></div>
+<p class="element-title">Hub Foraging</p>
+<p class="element-description">Downgraded version of the Park Foraging script, but it's a good start and nice for new accounts.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/foraging.webp" alt=""></div>
+<p class="element-title">2x2 Island Foraging</p>
+<p class="element-description">The classic 2x2 island foraging script. Low XP rates but you keep your privacy whilst in your private island.</p>
+</article>
+</div>
+</div>
+</div>
+
+<div class="billboard-content extra-vertical-padding">
+<div class="billboard-section">
+<p class="title-description">Fishing</p>
+<div class="billboard-description-container">
+<p class="billboard-description">Both a vital skill as well as being a money maker at end-game gear.</p>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/fishing.webp" alt=""></div>
+<p class="element-title">Auto-Fishing</p>
+<p class="element-description">Automatic fishing for water, lava, worm, etc. Supports <span class="red">autokilling</span>, auto-selling, anti-afk, etc.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="boots.webp" alt=""></div>
+<p class="element-title">Fishing w Auto-Travel</p>
+<p class="element-description">Whilst the previous script is incredibly powerful, this script allows you to configure autowalking for specific areas in Skyblock so you can fully AFK fishing with failsafes.</p>
+</article>
+</div>
+</div>
+</div>
+
+<div class="billboard-content extra-vertical-padding">
+<div class="billboard-section">
+<p class="title-description">Miscellaneous</p>
+<div class="billboard-description-container">
+<p class="billboard-description">Additional useful scripts outside of the large categories above.</p>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/leaves.webp" alt=""></div>
+<p class="element-title">Plot Cleaner</p>
+<p class="element-description"><span class="red">Fully AFK</span> plot cleaner, which uses both walking and flying pathfinders to 100% clear each plot quickly for you.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="128/visitor.webp" alt=""></div>
+<p class="element-title">Visitors</p>
+<p class="element-description">Greatly increase your profit/hour by completing visitors inbetween rewarps.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="cobble.svg" alt=""></div>
+<p class="element-title">Cobblestone</p>
+<p class="element-description">The first macro you'd use when starting out, earning < 1m/h but only takes 10 mins to setup.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="alchemy.svg" alt=""></div>
+<p class="element-title">Alchemy</p>
+<p class="element-description">A speedy script that can take you from level <span class="red">0 &#8594; 50</span> in just a few hours.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">🎺</div></div>
+<p class="element-title">Harp</p>
+<p class="element-description">A fully automatic harp script, with no need to set a click delay like other mods.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">&#128164;</div></div>
+<p class="element-title">Anti-AFK</p>
+<p class="element-description">With a failsafe, just AFK's in the spot. Useful for minions.</p>
+</article>
+</div>
+</div>
+</div>
+
+<div class="billboard-content extra-vertical-padding">
+<div class="billboard-section">
+<p class="title-description">Mini Scripts / QOL</p>
+<div class="billboard-description-container">
+<p class="billboard-description">Secondary scripts or features that are just for some help with a particular task.</p>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="fairysouls.svg" alt=""></div>
+<p class="element-title">Fairy Souls</p>
+<p class="element-description">Directs you to the nearest (undiscovered) fairy soul.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="cocoa.svg" alt=""></div>
+<p class="element-title">Cocoa Placer</p>
+<p class="element-description">Vertically places cocoa - useful for building cocoa farms.</p>
+</article>
+</div>
+</div>
+</div>
+
+<div class="billboard-content extra-vertical-padding">
+<div class="billboard-section">
+<p class="title-description">Crucial Features</p>
+<div class="billboard-description-container">
+<p class="billboard-description">If we named every feature and setting we had, this page would be way too long. So here are the most commonly asked for features.</p>
+</div>
+</div>
+</div>
+<div class="billboard-content">
+<div class="elements-items">
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">👮️</div></div>
+<p class="element-title">Hydra Anti-Staff</p>
+<p class="element-description">By far the most advanced anti-staff out there. A system created by us called Hydra with the most check detections, hyper-realistic responses, and instant alerts. <span class="red">Simply unmatched.</span></p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">📈</div></div>
+<p class="element-title">Scripting Sessions</p>
+<p class="element-description">Taunahi has a spectacular unique feature: Sessions. For all scripting sessions, it will keep track of all <span class="red">statistics and events</span> that happen, which you can look over in your dashboard to see total earnings, failsafes, screenshots and more.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon no-padding" style="width:48px;"><img src="discord2.webp" alt=""></div>
+<p class="element-title">Discord Integration</p>
+<p class="element-description">The most interactive and performant discord integration, giving you notifications, screenshots and hourly rates straight to your private discord channel.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">🤖</div></div>
+<p class="element-title">Remote Control</p>
+<p class="element-description"><span class="red">Without additional setup</span>, you can directly control your script either via your dashboard or via discord integration, without needing to be at your PC!</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">👀</div></div>
+<p class="element-title">Humanized Movement</p>
+<p class="element-description">Despite what you might think, most other client's movement can be <span class="red">reverse engineered by the server</span> to detect whether it is illegally simulated movement. Taunahi cannot, basing it's movement & rotation on things such as your mouse sensitivity, and other factors.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">💻</div></div>
+<p class="element-title">Beautiful Menu & HUD</p>
+<p class="element-description">Taunahi has by far the most beautiful HUD of any utility mod, along with an amazing, fluid, intuative menu that you can customise to your liking.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">📊</div></div>
+<p class="element-title">Statistics & Profit Calculator</p>
+<p class="element-description">Taunahi keeps track of your earnings, skill xp, scripting time and much more so you know exactly how much you make.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">💸</div></div>
+<p class="element-title">Auto-Sell</p>
+<p class="element-description">An amazing auto-sell which can sell to both NPC and Bazaar, depending on which is more profitable to your collected items.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">🏃</div></div>
+<p class="element-title">Instant Anti-Stuck</p>
+<p class="element-description">Reliable anti-stuck, getting you out of blocks quickly and efficiently, <span class="red">no scuffed wiggle</span>.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">💎</div></div>
+<p class="element-title">Failsafe</p>
+<p class="element-description">The most reliable failsafe out there. Handles all hub switches, disconnects, etc. Nothing more to be said.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">🖱️</div></div>
+<p class="element-title">Mouse Control</p>
+<p class="element-description">Numerous mouse features such as Mouse Lock, Block Checker, Tool Switcher, and more.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">🌀</div></div>
+<p class="element-title">Rewarper</p>
+<p class="element-description">In the absence on teleport pads, Taunahi can automatically rewarp to your spawnpoint at the end of your farm with realistic movement.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">😴</div></div>
+<p class="element-title">Dynamic Rest</p>
+<p class="element-description">Create a life-like scripting sleep cycle of scripting to fulfil a legit activity cycle so you optimise your hours whilst staying under the radar.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">👁️</div></div>
+<p class="element-title">Auto Direction</p>
+<p class="element-description">One of the many widespread features that originate from Taunahi, Auto-Direction, which automatically ensures you are looking the correct way before you start farming.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">📺</div></div>
+<p class="element-title">Picture-in-Picture</p>
+<p class="element-description">A unique feature for utility mods that provides a mode for an always on-top small window on your monitor. Great for if you want to do something else but keep watch.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">👤</div></div>
+<p class="element-title">Perspective</p>
+<p class="element-description">A mode in which you can look at yourself in a sort of FreeView without your yaw/pitch changing, a great QOL feature in general.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">🥸</div></div>
+<p class="element-title">Built-in Proxy Mod</p>
+<p class="element-description">Contains a built-in proxy mod with saved configs, which are very useful if you want to use on alts.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">⚙️</div></div>
+<p class="element-title">Hundreds of Settings</p>
+<p class="element-description">Over all the scripts and qol features, there are hundreds of customizable settings fit for you to play around with.</p>
+</article>
+</div>
+<div class="element-item">
+<article class="element-item-container less-inbetween">
+<div class="element-icon no-padding color-overlay" style="background-color: var(--bs-element-bg-3); "></div>
+<div class="element-icon emoji"><div class="emoji">&#129300</div></div>
+<p class="element-title">And so many more...</p>
+<p class="element-description">This page would be too long if we included every big feature, if you want to find out the rest, download it and have fun.</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function startVideo(youtubeUrl) {
+        window.open(youtubeUrl, '_blank');
+    }
+</script>
+</body>
+</html>

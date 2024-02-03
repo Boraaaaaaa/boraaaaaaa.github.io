@@ -1,0 +1,256 @@
+Uri: https://www.taunahi.net/
+File Name: C:\Downloaded Web Sites\www.taunahi.net\index.htm
+Content Type: text/html
+
+Uri: https://rsms.me/
+File Name: C:\Downloaded Web Sites\www.taunahi.net\index-1.htm
+Content Type: text/html
+
+Uri: https://rsms.me/inter/inter.css
+File Name: C:\Downloaded Web Sites\www.taunahi.net\inter\inter.css
+Content Type: text/css
+
+Uri: https://www.taunahi.net/css/vyker.css
+File Name: C:\Downloaded Web Sites\www.taunahi.net\css\vyker.css
+Content Type: text/css
+
+Uri: https://assets.taunahi.net/logo-cube-small.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\logo-cube-small.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/home
+File Name: C:\Downloaded Web Sites\www.taunahi.net\home.html
+Content Type: text/html
+
+Uri: https://www.taunahi.net/cdn-cgi/l/email-protection
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\l\email-protection.html
+Content Type: text/html
+
+Uri: https://www.taunahi.net/features
+File Name: C:\Downloaded Web Sites\www.taunahi.net\features.html
+Content Type: text/html
+
+Uri: https://www.taunahi.net/dashboard
+File Name: C:\Downloaded Web Sites\www.taunahi.net\dashboard.html
+Content Type: text/html
+
+Uri: https://www.taunahi.net/latest
+File Name: C:\Downloaded Web Sites\www.taunahi.net\latest.html
+Content Type: text/html
+
+Uri: https://www.taunahi.net/js/Gradient.js
+File Name: C:\Downloaded Web Sites\www.taunahi.net\js\Gradient.js
+Content Type: text/javascript
+
+Uri: https://www.taunahi.net/js/animateText.js
+File Name: C:\Downloaded Web Sites\www.taunahi.net\js\animateText.js
+Content Type: text/javascript
+
+Uri: https://www.taunahi.net/js/numberFormatter.js
+File Name: C:\Downloaded Web Sites\www.taunahi.net\js\numberFormatter.js
+Content Type: text/javascript
+
+Uri: https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js
+File Name: C:\Downloaded Web Sites\www.taunahi.net\npm\@popperjs\core@2.10.2\dist\umd\popper.min.js
+Content Type: application/javascript
+
+Uri: https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js
+File Name: C:\Downloaded Web Sites\www.taunahi.net\npm\bootstrap@5.1.3\dist\js\bootstrap.min.js
+Content Type: application/javascript
+
+Uri: https://assets.taunahi.net/logo-transparent-small.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\logo-transparent-small.png
+Content Type: image/png
+
+Uri: https://assets.taunahi.net/discord-white.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\discord-white.png
+Content Type: image/png
+
+Uri: https://assets.taunahi.net/mail.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\mail.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js
+Content Type: application/javascript
+
+Uri: https://assets.taunahi.net/discord.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\discord.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/forge.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\forge.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/search.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\search.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/chevron-down.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\chevron-down.png
+Content Type: image/png
+
+Uri: https://discord.com/invite/taunahi
+File Name: C:\Downloaded Web Sites\www.taunahi.net\invite\taunahi.html
+Content Type: text/html
+
+Uri: https://www.taunahi.net/cdn-cgi/styles/cf.errors.css
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\styles\cf.errors.css
+Content Type: text/css
+
+Uri: https://assets.taunahi.net/crops.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\crops.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/pumpkin_and_melon_3.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\pumpkin_and_melon_3.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/cactus.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cactus.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/cocoa.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cocoa.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/mushroom.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\mushroom.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/cane.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cane.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/ghost.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\ghost.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/128/crypt.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\crypt.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/bow2.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\bow2.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/zealot.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\zealot.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/128/rotten_flesh.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\rotten_flesh.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/128/golden_axe.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\golden_axe.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/128/wooden-axe.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\wooden-axe.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/128/foraging.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\foraging.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/128/fishing.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\fishing.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/boots.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\boots.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/128/leaves.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\leaves.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/128/visitor.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\128\visitor.webp
+Content Type: image/webp
+
+Uri: https://assets.taunahi.net/cobble.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cobble.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/alchemy.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\alchemy.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/fairysouls.svg
+File Name: C:\Downloaded Web Sites\www.taunahi.net\fairysouls.svg
+Content Type: image/svg+xml
+
+Uri: https://assets.taunahi.net/discord2.webp
+File Name: C:\Downloaded Web Sites\www.taunahi.net\discord2.webp
+Content Type: image/webp
+
+Uri: https://www.taunahi.net/images/email.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\images\email.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/privacy
+File Name: C:\Downloaded Web Sites\www.taunahi.net\privacy.html
+Content Type: text/html
+
+Uri: https://www.taunahi.net/tos
+File Name: C:\Downloaded Web Sites\www.taunahi.net\tos.html
+Content Type: text/html
+
+Uri: https://unpkg.com/detect-gpu@5.0.38/dist/detect-gpu.umd.js
+File Name: C:\Downloaded Web Sites\www.taunahi.net\detect-gpu@5.0.38\dist\detect-gpu.umd.js
+Content Type: application/javascript
+
+Uri: https://images.unsplash.com/photo-1620912189865-1e8a33da4c5e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTg1MDA1Ng&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1500
+File Name: C:\Downloaded Web Sites\www.taunahi.net\photo-1620912189865-1e8a33da4c5e.jpeg
+Content Type: image/jpeg
+
+Uri: https://www.taunahi.net/cdn-cgi/images/icon-exclamation.png?1376755637
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\icon-exclamation.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-icon-horizontal-arrow.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-icon-horizontal-arrow.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/browser-bar.png?1376755637
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\browser-bar.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-no-screenshot-warn.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-no-screenshot-warn.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-no-screenshot-error.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-no-screenshot-error.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-icon-ok.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-icon-ok.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-icon-error.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-icon-error.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-icon-browser.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-icon-browser.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-icon-cloud.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-icon-cloud.png
+Content Type: image/png
+
+Uri: https://www.taunahi.net/cdn-cgi/images/cf-icon-server.png
+File Name: C:\Downloaded Web Sites\www.taunahi.net\cdn-cgi\images\cf-icon-server.png
+Content Type: image/png
+
+Uri: https://www.cloudflare.com/5xx-error-landing/
+File Name: C:\Downloaded Web Sites\www.taunahi.net\5xx-error-landing\index.htm
+Content Type: text/html
+
+Uri: https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext
+File Name: C:\Downloaded Web Sites\www.taunahi.net\css.css
+Content Type: text/css
+
